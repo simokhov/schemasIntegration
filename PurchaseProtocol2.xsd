@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- edited with XMLSpy v2015 (x64) (http://www.altova.com) by Igi (Igi Co) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:include schemaLocation="_FileTypes.xsd"/>
+	<!--<xs:include schemaLocation="_CommonTypes.xsd"/>-->
+	<!--<xs:include schemaLocation="PurchaseOffer.xsd"/>-->
+	<xs:element name="purchaseprotocol2">
+		<xs:annotation>
+			<xs:documentation>Протокол подведения итогов электронного аукциона</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="purchid" type="xs:integer">
+					<xs:annotation>
+						<xs:documentation>Идентификатор аукциона</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="purchtype" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>Тип аукциона ( EF-44 или EF-94)</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="issinglerequest">
+					<xs:annotation>
+						<xs:documentation>Признак "Единственная заявка"</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="purchcode">
+					<xs:annotation>
+						<xs:documentation>Номер извещения</xs:documentation>
+					</xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="30"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="purchversion" type="xs:integer">
+					<xs:annotation>
+						<xs:documentation>Номер редакции извещения</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="purchname">
+					<xs:annotation>
+						<xs:documentation>Наименование объекта закупки (Краткое наименование)</xs:documentation>
+					</xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="2000"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="purchisrupreferenced" type="xs:string" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Установлены преференции для товаров российского происхождения</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="purchpreference" type="xs:string" minOccurs="0" maxOccurs="unbounded">
+					<xs:annotation>
+						<xs:documentation>Другие преференции</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="purchisbypreferenced" minOccurs="0" maxOccurs="unbounded">
+					<xs:annotation>
+						<xs:documentation>Установлены преференции для товаров белорусского происхождения</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="auctionbegindate" type="xs:string" minOccurs="0" maxOccurs="unbounded">
+					<xs:annotation>
+						<xs:documentation>Дата и время начала проведения аукциона</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="auctionenddate" type="xs:string" minOccurs="0" maxOccurs="unbounded">
+					<xs:annotation>
+						<xs:documentation>Дата и время окнчания аукциона</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="notificationfeatures">
+					<xs:annotation>
+						<xs:documentation>Особенности размещения заказа</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="notificationfeature" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="placementfeature">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="featuretypename" type="xs:string">
+														<xs:annotation>
+															<xs:documentation>Тип</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+													<xs:element name="name" type="xs:string">
+														<xs:annotation>
+															<xs:documentation>Наименование</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="offers">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="purchoffer" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="reqnosupp" type="xs:unsignedByte">
+											<xs:annotation>
+												<xs:documentation>Номер заявки</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="reqid" type="xs:unsignedInt">
+											<xs:annotation>
+												<xs:documentation>идентификатор заявки</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="buid" type="xs:unsignedInt">
+											<xs:annotation>
+												<xs:documentation>Идентификатор Участника</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="budocid" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>Идентификаор док-та аккредитации</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="offerplace" type="xs:unsignedByte">
+											<xs:annotation>
+												<xs:documentation>Место участника по итогам торгов</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="inn" type="xs:unsignedLong">
+											<xs:annotation>
+												<xs:documentation>ИНН</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="kpp" type="xs:unsignedInt">
+											<xs:annotation>
+												<xs:documentation>КПП</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="reqno" type="xs:unsignedInt">
+											<xs:annotation>
+												<xs:documentation>Защищенный номер заявки</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="bufullname" type="xs:string">
+											<xs:annotation>
+												<xs:documentation>Полное наименование </xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="offerprice" type="xs:decimal">
+											<xs:annotation>
+												<xs:documentation>Педложение о цене</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="offerkind" type="xs:string">
+											<xs:annotation>
+												<xs:documentation>Вид аукциона (повышение / понижение)</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="createat" type="xs:string">
+											<xs:annotation>
+												<xs:documentation>Дата и время подачи предложения</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="reqstate" type="xs:string">
+											<xs:annotation>
+												<xs:documentation>Статус заявки (A- принята; R- отклонена)</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="rejectreason">
+											<xs:annotation>
+												<xs:documentation>Причина отклонения </xs:documentation>
+											</xs:annotation>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="protocoldoc">
+					<xs:annotation>
+						<xs:documentation>Файл протокола </xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="file" type="FileType"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="doc">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="file">
+								<xs:complexType>
+									<xs:complexContent>
+										<xs:extension base="FileType"/>
+									</xs:complexContent>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="solutiondate" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>Дата принятия решения</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="datesolutionagree" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>Согласие  о фиксации даты принятия решения</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="custcontractsigncoose" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Сведения об оргнизации подписывающей контракт</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="allowsigncontractchoose" type="xs:string">
+								<xs:annotation>
+									<xs:documentation>Признак изменения организации подписывающей контракт (On или "" )</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="contractsign">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="id" type="xs:unsignedInt">
+											<xs:annotation>
+												<xs:documentation>Идентификатор организации </xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="fullname" type="xs:string">
+											<xs:annotation>
+												<xs:documentation>Полное наименование</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="custhaslogin" type="xs:string"/>
+										<xs:element name="signcontractorg" type="xs:string">
+											<xs:annotation>
+												<xs:documentation>Тип организации подписывающей контракт (Возможные значения - 'customer' - Заказчик или 'uo' - Уполномоченный орган)</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- edited with XMLSpy v2015 (x64) (http://www.altova.com) by Igi (Igi Co) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:include schemaLocation="_FileTypes.xsd"/>
+	<xs:element name="supplierpurchaserequest24cust">
+		<xs:annotation>
+			<xs:documentation>Вторые части заявок на участие в открытом электронном аукционе</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="purchid" type="xs:unsignedInt">
+					<xs:annotation>
+						<xs:documentation>Идентификатор аукциона</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="purchname" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>Краткое наименование аукциона</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="purchcode" type="xs:unsignedLong">
+					<xs:annotation>
+						<xs:documentation>Номер извещения</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="purchstate" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>Статус аукциона (служебное)</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="purchversion" type="xs:unsignedByte">
+					<xs:annotation>
+						<xs:documentation>Номер редакции извещения</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="purchisrupreferenced" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Установлены преференции для товаров российского происхождения</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="purchisbypreferenced">
+					<xs:annotation>
+						<xs:documentation>Установлены преференции для товаров белорусского происхождения</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="purchpreference" type="xs:unsignedByte"/>
+				<xs:element name="notificationFeatures">
+					<xs:annotation>
+						<xs:documentation>Особенности размещения заказа</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="notificationFeature" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="placementFeature">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="featureType" type="xs:string"/>
+													<xs:element name="featureTypeName" type="xs:string"/>
+													<xs:element name="code" type="xs:unsignedInt" minOccurs="0"/>
+													<xs:element name="name" type="xs:string"/>
+													<xs:element name="content" type="xs:string" minOccurs="0"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="auctionbegindate" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>Дата и время начала аукциона</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="auctionenddate" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>Дата и время окончания аукциона</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="totalreqcount" type="xs:unsignedByte">
+					<xs:annotation>
+						<xs:documentation>Заявок на участие подано</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="acceptreqcount" type="xs:unsignedByte">
+					<xs:annotation>
+						<xs:documentation>Заявок на участие принято</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="offercnt" type="xs:unsignedByte">
+					<xs:annotation>
+						<xs:documentation>Заявок приняло участие в аукционе</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="offers">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="purchoffer" maxOccurs="unbounded">
+								<xs:annotation>
+									<xs:documentation>Сведения вторых частей заявок на участие в открытом аукционе в электронной форме</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="offerplace" type="xs:unsignedByte">
+											<xs:annotation>
+												<xs:documentation>Место занятое участником в ходе торгов</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="reqid" type="xs:unsignedInt">
+											<xs:annotation>
+												<xs:documentation>Идентификаор заявки</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="reqno" type="xs:unsignedInt">
+											<xs:annotation>
+												<xs:documentation>Идентификатор заявки</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="reqnosupp" type="xs:unsignedByte">
+											<xs:annotation>
+												<xs:documentation>Порядковый номер заявки</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="offerprice" type="xs:string">
+											<xs:annotation>
+												<xs:documentation>Цена предложенная в ходе торгов</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="offerkind"/>
+                    <xs:element name="createat" type="xs:string"/>
+										<xs:element name="bufullname" type="xs:string">
+											<xs:annotation>
+												<xs:documentation>Наименование поставщика</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="opf" type="xs:string">
+											<xs:annotation>
+												<xs:documentation>Организационно правовая форма</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="buid" type="xs:unsignedInt">
+											<xs:annotation>
+												<xs:documentation>Идентификатор Участника</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="fio" type="xs:string">
+											<xs:annotation>
+												<xs:documentation>ФИО конткактного лица</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="factaddress" type="xs:string">
+											<xs:annotation>
+												<xs:documentation>Почтовый адрес</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="juraddress" type="xs:string">
+											<xs:annotation>
+												<xs:documentation>Юридический адрес</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="buDescription" type="xs:string" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>Заявление на аккредитацию</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="openAccountText" type="xs:string">
+											<xs:annotation>
+												<xs:documentation>Заявление об открытии счета</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="phone" type="xs:string">
+											<xs:annotation>
+												<xs:documentation>Телефон</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="inn" type="xs:unsignedInt">
+											<xs:annotation>
+												<xs:documentation>ИНН</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="kpp" type="xs:unsignedInt">
+											<xs:annotation>
+												<xs:documentation>КПП</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="reqdocid" type="xs:unsignedInt">
+											<xs:annotation>
+												<xs:documentation>Идентификатор документа заявки (служебное)</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="maxcontractamount" type="xs:decimal">
+											<xs:annotation>
+												<xs:documentation>Максимальная сумма сделки</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="custdocs2">
+											<xs:annotation>
+												<xs:documentation>Тредования ко 2 части заявки</xs:documentation>
+											</xs:annotation>
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="custdoc" maxOccurs="unbounded">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="prddoctypename" type="xs:string"/>
+																<xs:element name="prddoctype" type="xs:string"/>
+																<xs:element name="needdoc" type="xs:string"/>
+																<xs:element name="requireddoc" minOccurs="0">
+																	<xs:complexType>
+																		<xs:sequence>
+																			<xs:element name="prdid" type="xs:unsignedInt"/>
+																			<xs:element name="prdName" type="xs:string"/>
+																			<xs:element name="prdLink" type="xs:string"/>
+																			<xs:element name="docs" minOccurs="0">
+																				<xs:complexType>
+																					<xs:sequence>
+																						<xs:element name="doc">
+																							<xs:complexType>
+																								<xs:sequence>
+																									<xs:element name="file">
+																										<xs:complexType>
+																											<xs:sequence>
+																												<xs:element name="fileid" type="xs:string"/>
+																												<xs:element name="filename" type="xs:string"/>
+																											</xs:sequence>
+																										</xs:complexType>
+																									</xs:element>
+																								</xs:sequence>
+																							</xs:complexType>
+																						</xs:element>
+																					</xs:sequence>
+																				</xs:complexType>
+																			</xs:element>
+																		</xs:sequence>
+																	</xs:complexType>
+																</xs:element>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="requestdocspart2">
+											<xs:annotation>
+												<xs:documentation>Сведения ко 2 части</xs:documentation>
+											</xs:annotation>
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="requireddoc" maxOccurs="unbounded">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="file">
+																	<xs:complexType>
+																		<xs:sequence>
+																			<xs:element name="fileid" type="GUID">
+																				<xs:annotation>
+																					<xs:documentation>Идентификатор файла</xs:documentation>
+																				</xs:annotation>
+																			</xs:element>
+																			<xs:element name="filename" type="xs:string">
+																				<xs:annotation>
+																					<xs:documentation>Имя файла</xs:documentation>
+																				</xs:annotation>
+																			</xs:element>
+																			<xs:element name="hash" type="xs:string">
+																				<xs:annotation>
+																					<xs:documentation>ХЕШ файла</xs:documentation>
+																				</xs:annotation>
+																			</xs:element>
+																			<xs:element name="sign" type="xs:string">
+																				<xs:annotation>
+																					<xs:documentation>Подпись</xs:documentation>
+																				</xs:annotation>
+																			</xs:element>
+																			<xs:element name="signinfo" type="xs:string">
+																				<xs:annotation>
+																					<xs:documentation>ИНформация о подписании</xs:documentation>
+																				</xs:annotation>
+																			</xs:element>
+																			<xs:element name="signrequired" type="xs:boolean">
+																				<xs:annotation>
+																					<xs:documentation>Требование о подписании файла</xs:documentation>
+																				</xs:annotation>
+																			</xs:element>
+																		</xs:sequence>
+																	</xs:complexType>
+																</xs:element>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

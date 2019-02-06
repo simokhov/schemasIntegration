@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="suppliersinfo" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+  <xs:element name="file">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="fileid" type="xs:string" minOccurs="0" />
+        <xs:element name="filename" type="xs:string" minOccurs="0" />
+        <xs:element name="hash" type="xs:string" minOccurs="0" />
+        <xs:element name="sign" type="xs:string" minOccurs="0" />
+        <xs:element name="signinfo" type="xs:string" minOccurs="0" />
+        <xs:element name="signrequired" type="xs:string" minOccurs="0" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="requireddoc">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="prdid" type="xs:string" minOccurs="0" />
+        <xs:element name="prdName" type="xs:string" minOccurs="0" />
+        <xs:element name="prdLink" type="xs:string" minOccurs="0" />
+        <xs:element name="docs" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="doc" minOccurs="0">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element ref="file" minOccurs="0"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element ref="file" minOccurs="0" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="suppliersinfo">
+    <xs:complexType>
+	<xs:sequence>
+      <xs:element name="reqSuppInfo" maxOccurs="unbounded">
+		  <xs:complexType>
+			<xs:sequence>
+			  <xs:element name="suppbuid" type="xs:string" minOccurs="0" />
+			  <xs:element name="reqNo" type="xs:string" minOccurs="0" />
+			  <xs:element name="reqsuppname" type="xs:string" minOccurs="0" />
+			  <xs:element name="reqsuppfactaddress" type="xs:string" minOccurs="0" />
+			  <xs:element name="reqsupppostaddress" type="xs:string" minOccurs="0" />
+			  <xs:element name="reqsuppphone" type="xs:string" minOccurs="0" />
+			  <xs:element name="suppinn" type="xs:string" minOccurs="0" />
+			  <xs:element name="suppkpp" type="xs:string" minOccurs="0" />
+			  <xs:element name="suppogrn" type="xs:string" minOccurs="0" />
+			  <xs:element name="issmp" type="xs:string" minOccurs="0" />
+			  <xs:element name="registerdocinfo" minOccurs="0">
+				<xs:complexType>
+				  <xs:sequence>
+					<xs:element name="filedata" minOccurs="0" maxOccurs="unbounded">
+					  <xs:complexType>
+						<xs:sequence>
+						  <xs:element name="Description" type="xs:string" minOccurs="0" />
+						  <xs:element name="filetypecode" type="xs:string" minOccurs="0" />
+						  <xs:element name="registerdocs" minOccurs="0">
+							<xs:complexType>
+							  <xs:sequence>
+								<xs:element name="registerdoc" minOccurs="0">
+								  <xs:complexType>
+									<xs:sequence>
+									  <xs:element ref="file" minOccurs="0"/>
+									</xs:sequence>
+								  </xs:complexType>
+								</xs:element>
+							  </xs:sequence>
+							</xs:complexType>
+						  </xs:element>
+						</xs:sequence>
+					  </xs:complexType>
+					</xs:element>
+				  </xs:sequence>
+				</xs:complexType>
+			  </xs:element>
+			  <xs:element name="custdocs2" minOccurs="0">
+				<xs:complexType>
+				  <xs:sequence>
+					<xs:element name="custdoc" minOccurs="0" maxOccurs="unbounded">
+					  <xs:complexType>
+						<xs:sequence>
+						  <xs:element name="prddoctypename" type="xs:string" minOccurs="0" />
+						  <xs:element name="prddoctype" type="xs:string" minOccurs="0" />
+						  <xs:element name="needdoc" type="xs:string" minOccurs="0" />
+						  <xs:element ref="requireddoc" minOccurs="0"/>
+						</xs:sequence>
+					  </xs:complexType>
+					</xs:element>
+				  </xs:sequence>
+				</xs:complexType>
+			  </xs:element>
+			  <xs:element name="requestdocspart1" minOccurs="0">
+				<xs:complexType>
+				  <xs:sequence>
+					<xs:element ref="requireddoc" minOccurs="0" maxOccurs="unbounded" />
+				  </xs:sequence>
+				</xs:complexType>
+			  </xs:element>
+			  <xs:element name="requestdocspart2" minOccurs="0">
+				<xs:complexType>
+				  <xs:sequence>
+					<xs:element ref="requireddoc" minOccurs="0" maxOccurs="unbounded" />
+				  </xs:sequence>
+				</xs:complexType>
+			  </xs:element>
+			</xs:sequence>
+		  </xs:complexType>
+		</xs:element>
+	</xs:sequence>		
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,311 @@
+﻿<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="_CommonTypes.xsd" />
+
+  <!-- START OF: Типы для файлов -->
+
+
+  <xs:simpleType name="FileTypeName">
+    <xs:annotation>
+      <xs:documentation>название типов документов</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:pattern value=".*" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="FileType">
+    <xs:sequence>
+      <xs:element name="fileid" type="GUID">
+        <xs:annotation>
+          <xs:documentation>
+            Guid файла
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="filename" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            Название файла
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="signinfo" type="xs:string" fixed="Файл подписан" />
+      <xs:element name="hash" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            Вычисление хэша содержимого файла по ГОСТ 34.11
+            Необходима Crypto-Pro CPICom 1.0 Type Library
+          </xs:documentation>
+          <xs:appinfo>
+            Пример кода:
+            public static string GetFileHash(byte[] fileBytes)
+            {
+            var hashedDataClass = new CPICom.HashedDataClass { Algorithm = CPICom.CAPICOM_HASH_ALGORITHM.CAPICOM_HASH_ALGORITHM_GOST3411 };
+            hashedDataClass.Hash(Encoding.GetEncoding(1251).GetString(fileBytes));
+            return Convert.ToBase64String(Encoding.ASCII.GetBytes(hashedDataClass.Value));
+            }
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="sign" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            подпись
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="signrequired" type="BoolType" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="OptionalFileType">
+    <xs:sequence>
+      <xs:element name="comment" type="xs:string" minOccurs="0"/>
+      <xs:element name="fileid" type="NullableGUID" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>
+            Guid файла
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="filename" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>
+            Название файла
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="signinfo" type="xs:string" minOccurs="0"/>
+      <xs:element name="hash" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>
+            Вычисление хэша содержимого файла по ГОСТ 34.11
+            Необходима Crypto-Pro CPICom 1.0 Type Library
+          </xs:documentation>
+          <xs:appinfo>
+            Пример кода:
+            public static string GetFileHash(byte[] fileBytes)
+            {
+            var hashedDataClass = new CPICom.HashedDataClass { Algorithm = CPICom.CAPICOM_HASH_ALGORITHM.CAPICOM_HASH_ALGORITHM_GOST3411 };
+            hashedDataClass.Hash(Encoding.GetEncoding(1251).GetString(fileBytes));
+            return Convert.ToBase64String(Encoding.ASCII.GetBytes(hashedDataClass.Value));
+            }
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="sign" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>
+            подпись
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="signrequired" type="BoolType" minOccurs="0" maxOccurs="1" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="AttachFiles">
+    <xs:sequence>
+      <xs:element name="attachfile" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>attachfile</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="file" minOccurs="0" type="OptionalFileType">
+              <xs:annotation>
+                <xs:documentation>file</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="AttachedDocs" >
+    <xs:sequence>
+      <xs:element name="attacheddoc" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>attacheddoc</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="file" minOccurs="0"  type="OptionalFileType">
+              <xs:annotation>
+                <xs:documentation>file</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="ComplaintArgumentFiles" >
+    <xs:sequence>
+      <xs:element name="complaintargumentfile" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>complaintargumentfile</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="file" type="OptionalFileType">
+              <xs:annotation>
+                <xs:documentation>Описание</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Docs" >
+    <xs:sequence>
+      <xs:element name="doc" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>doc</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="file" type="OptionalFileType">
+              <xs:annotation>
+                <xs:documentation>Описание</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+
+  <xs:complexType name="ArgumentDocs" >
+    <xs:sequence>
+      <xs:element name="argumentdoc" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>argumentdoc</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="file" type="OptionalFileType">
+              <xs:annotation>
+                <xs:documentation>Описание</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="ComansFiles">
+    <xs:all>
+      <xs:element name="comansfile" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>comansfile</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="file" minOccurs="0" type="OptionalFileType">
+              <xs:annotation>
+                <xs:documentation>file</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="ComReqDocs">
+    <xs:all>
+      <xs:element name="comreqdoc" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>comreqdoc</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="file" type="OptionalFileType">
+              <xs:annotation>
+                <xs:documentation>Описание</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="ReqDoc">
+    <xs:sequence>
+      <xs:element name="file" minOccurs="0" type="OptionalFileType" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="RequiredDoc">
+    <xs:all>
+      <xs:element name="prdid" type="xs:string" minOccurs="0" />
+      <xs:element name="prdname" type="xs:string" minOccurs="0" />
+      <xs:element name="prdlink" type="xs:string" minOccurs="0" />
+      <xs:element name="prdcomment" type="xs:string" minOccurs="0" />
+      <xs:element name="requireddocfiles" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="requireddocfile" minOccurs="0" maxOccurs="unbounded" >
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="file" type="OptionalFileType" minOccurs="0">
+                    
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>    
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="RequiredDocs1">
+    <xs:choice>
+      <xs:element name="requireddoctype" minOccurs="0" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="needdoc" type="xs:string" minOccurs="0" />
+            <xs:element name="prddoctype" type="xs:string" minOccurs="0" />
+            <xs:element name="prddoctypename" type="xs:string" minOccurs="0" />
+            <xs:element name="requireddoc" type="RequiredDoc" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="requireddoc" type="RequiredDoc" minOccurs="0" maxOccurs="unbounded"/>    
+    </xs:choice>
+  </xs:complexType>
+
+  <xs:complexType name="RequiredDocs22">
+    <xs:choice>
+      <xs:element name="requireddoctype" minOccurs="0" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="needdoc" type="xs:string" minOccurs="0" />
+            <xs:element name="prddoctype" type="xs:string" minOccurs="0" />
+            <xs:element name="prddoctypename" type="xs:string" minOccurs="0" />
+            <xs:element name="requireddoc" type="RequiredDoc" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="requireddoc" type="RequiredDoc" minOccurs="0" maxOccurs="unbounded"/>    
+    </xs:choice>
+  </xs:complexType>
+
+  <xs:complexType name="Item">
+    <xs:sequence>
+      <xs:element name="file" minOccurs="0" type="OptionalFileType" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- END OF: Типы для файлов -->
+
+</xs:schema>

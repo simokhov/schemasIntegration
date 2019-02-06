@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- edited with XMLSpy v2015 (x64) (http://www.altova.com) by Igi (Igi Co) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:include schemaLocation="_CommonTypes.xsd"/>
+	<xs:element name="purchaseprotocol1">
+		<xs:annotation>
+			<xs:documentation>Протокол рассмотрения 1 частей</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="purchid" type="xs:integer">
+					<xs:annotation>
+						<xs:documentation>Идентификатор аукциона</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="purchtype" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>Тип аукциона ( EF-44 или EF-94)</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="purchcode" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>Номер извещения</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="purchversion" type="xs:integer">
+					<xs:annotation>
+						<xs:documentation>Номер редакции извещения</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="purchname">
+					<xs:annotation>
+						<xs:documentation>Наименование объекта закупки (Краткое наименование)</xs:documentation>
+					</xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="2000"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="req4custdate" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>Дата и время получения заявки Заказчиком</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="requestacceptdate" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>Дата окончания рассмотрения заявок</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="notificationfeatures">
+					<xs:annotation>
+						<xs:documentation>Особенности размещения заказа (доп. требования)</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="notificationfeature" minOccurs="0" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="placementfeature">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="featuretypename" type="xs:string">
+														<xs:annotation>
+															<xs:documentation>Тип</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+													<xs:element name="name" type="xs:string">
+														<xs:annotation>
+															<xs:documentation>Наименование</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="supplierpurchaserequest14cust">
+					<xs:annotation>
+						<xs:documentation>Сведения первых частей заявок на участие в открытом аукционе в электронной форме</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="supprequest" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="reqno" type="xs:integer">
+											<xs:annotation>
+												<xs:documentation>Номер заявки</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="reqdate" type="xs:string">
+											<xs:annotation>
+												<xs:documentation>Дата и время регистрации заявки</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="reqid" type="xs:integer">
+											<xs:annotation>
+												<xs:documentation>Идентификатор заявки</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="reqstate" type="xs:string">
+											<xs:annotation>
+												<xs:documentation>Статус заявки (A- принята; R- отклонена)</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="rejectreason" type="xs:string" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>Причина отклонения</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="protocoldoc">
+					<xs:annotation>
+						<xs:documentation>Файл протокола </xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="file">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="fileid" type="GUID">
+											<xs:annotation>
+												<xs:documentation>Идентификатор файла</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="filename" type="xs:string">
+											<xs:annotation>
+												<xs:documentation>Имя файла</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="signinfo" type="xs:string">
+											<xs:annotation>
+												<xs:documentation>Информация о подписи (Файл подписан)</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="hash" type="xs:base64Binary">
+											<xs:annotation>
+												<xs:documentation>ХЕШ файла</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="sign" type="xs:string">
+											<xs:annotation>
+												<xs:documentation>Подпись</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="signrequired" type="xs:string">
+											<xs:annotation>
+												<xs:documentation>Признак необходимости подписания</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="agreenotchange" type="xs:boolean" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Служебное, не используется</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

@@ -1,0 +1,205 @@
+﻿<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="_CommonTypes.xsd" />
+
+  <!-- START OF: Типы для файлов -->
+
+  <xs:complexType name="PurchaseInfo">
+    <xs:all>
+      <xs:element name="purchid" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>purchid</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="purchcode" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>purchcode</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="purchname" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>purchname</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="custname" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>custname</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="publicdate" type="NullableRuDateType" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>publicdate</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="purchamount" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>purchamount</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="PurchOffer">
+    <xs:all>
+      <xs:element name="reqid" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>reqid</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="buid" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>buid</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="budocid" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>budocid</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="inn" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>inn</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="kpp" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>kpp</xs:documentation>
+        </xs:annotation>
+      </xs:element>      
+      <xs:element name="bufullname" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>bufullname</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="offerpricepref" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>offerpricepref</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="createat" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>createat</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="reqstate" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>reqstate</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="rejectreason" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>rejectreason</xs:documentation>
+        </xs:annotation>
+      </xs:element>      
+      <xs:element name="myoffermark" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>myoffermark</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="offerplace" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>offerplace</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="offerprice" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>offerprice</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="offerkind" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>offerkind</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="reqno" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>reqno</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="offertime" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>offertime</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="PurchCostDetailsFiles">
+    <xs:all>
+      <xs:element name="ispurchcostdetails" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>ispurchcostdetails</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="totalcostpurchdetails" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>totalcostpurchdetails</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="purchcostdetails" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>purchcostdetails</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="purchcostdetail" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation>purchcostdetail</xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="0" name="file" maxOccurs="unbounded">
+                    <xs:annotation>
+                      <xs:documentation>Описание</xs:documentation>
+                    </xs:annotation>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="CustPurchAmount" mixed="true">
+    <xs:all>
+      <xs:element name="custorgid" type="xs:string" minOccurs="0" />
+      <xs:element name="custorgname" type="xs:string" minOccurs="0" />
+      <xs:element name="purchamount" type="xs:string" minOccurs="0" />
+      <xs:element name="custpurchamount" type="CustPurchAmount" minOccurs="0" />
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="OrgContacts">
+    <xs:all>
+      <xs:element name="orgname" type="xs:string" minOccurs="0" />
+      <xs:element name="orgtypeid" type="xs:string" minOccurs="0" />
+      <xs:element name="orgtype" type="xs:string" minOccurs="0" />
+      <xs:element name="orgplace" type="xs:string" minOccurs="0" />
+      <xs:element name="orgpostaddress" type="xs:string" minOccurs="0" />
+      <xs:element name="orgemail" type="xs:string" minOccurs="0" />
+      <xs:element name="orgphones" type="xs:string" minOccurs="0" />
+      <xs:element name="orgcontactperson" type="xs:string" minOccurs="0" />
+      <xs:element name="isspecorg" type="xs:string" minOccurs="0" />
+      <xs:element name="forbuid" type="xs:string" minOccurs="0" />
+      <xs:element name="forbuname" type="xs:string" minOccurs="0" />
+      <xs:element name="specorgid" type="xs:string" minOccurs="0" />
+      <xs:element name="specorgname" type="xs:string" minOccurs="0" />
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="Supplier">
+    <xs:sequence>
+      <xs:element name="maxcontractamount" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="suppbuid" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
+      <xs:element name="reqsuppname" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
+      <xs:element name="personfullname" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
+      <xs:element name="reqsuppfactaddress" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
+      <xs:element name="reqsupppostaddress" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
+      <xs:element name="reqsuppphone" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
+      <xs:element name="suppinn" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
+      <xs:element name="suppkpp" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>
