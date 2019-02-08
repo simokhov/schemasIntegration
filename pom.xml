@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.sstd</groupId>
-    <artifactId>vsrzScheme</artifactId>
+    <artifactId>integrationShemas</artifactId>
     <version>0.2</version>
     <packaging>jar</packaging>
     <name>VSRZ Schemes</name>
