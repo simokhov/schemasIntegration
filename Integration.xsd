@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+
+    <xs:element name="Authorization">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="INN" type="xs:string" minOccurs="1"/>
+                <xs:element name="KPP" type="xs:string" minOccurs="0"/>
+                <xs:element name="buFullName" type="xs:string" minOccurs="0"/>
+                <xs:element name="buID" type="xs:string" minOccurs="0"/>
+                <xs:element name="UniqueToken" type="xs:string" minOccurs="1"/>
+                <xs:element name="PersonFullName" type="xs:string" minOccurs="0"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="Errors">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Error" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="ErrorMessage" type="xs:string" minOccurs="0"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="Document">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="ID" type="xs:int" minOccurs="1"/>
+                <xs:element name="XmlData" type="xs:string" minOccurs="1"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="data">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="row" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="ID" type="xs:int" minOccurs="1"/>
+                            <xs:element name="KindName" type="xs:string" minOccurs="1"/>
+                            <xs:element name="KindDescription" type="xs:string" minOccurs="1"/>
+                            <xs:element name="Status" type="xs:int" minOccurs="1"/>
+                            <xs:element name="inout" type="xs:int" minOccurs="1"/>
+                            <xs:element name="Name" type="xs:string" minOccurs="1"/>
+                            <xs:element name="IsView" type="xs:int" minOccurs="0"/>
+                            <xs:element name="CreatedDate" type="xs:dateTime" minOccurs="1"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="Messages">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Message" minOccurs="1" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="ResultMessage" minOccurs="1" type="xs:string"/>
+                            <xs:element name="ResultObjectID" minOccurs="1" type="xs:string"/>
+                            <xs:element name="DocId" minOccurs="1" type="xs:int"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
