@@ -17,10 +17,10 @@
     <xs:element name="Errors">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="Error">
+                <xs:element name="Error" maxOccurs="unbounded">
                     <xs:complexType>
                         <xs:sequence>
-                            <xs:element name="ErrorMessage" type="xs:string" maxOccurs="unbounded"/>
+                            <xs:element name="ErrorMessage" type="xs:string" maxOccurs="1"/>
                         </xs:sequence>
                     </xs:complexType>
                 </xs:element>
@@ -70,6 +70,19 @@
                         </xs:sequence>
                     </xs:complexType>
                 </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="query">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="DocType" type="xs:int" minOccurs="1"/>
+                <xs:element name="bdate" type="xs:dateTime" minOccurs="0"/>
+                <xs:element name="edate" type="xs:dateTime" minOccurs="0"/>
+                <xs:element name="kindname" type="xs:string" minOccurs="0"/>
+                <xs:element name="docinout" type="xs:int" minOccurs="0"/>
+                <xs:element name="purchcode" type="xs:string" minOccurs="0"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
