@@ -17,17 +17,17 @@
     <xs:element name="Errors">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="Error" maxOccurs="unbounded">
+                <xs:element name="Error">
                     <xs:complexType>
                         <xs:sequence>
-                            <xs:element name="ErrorMessage" type="xs:string" minOccurs="0"/>
+                            <xs:element name="ErrorMessage" type="xs:string" maxOccurs="unbounded"/>
                         </xs:sequence>
                     </xs:complexType>
                 </xs:element>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
-    
+
     <xs:element name="Document">
         <xs:complexType>
             <xs:sequence>
@@ -36,7 +36,7 @@
             </xs:sequence>
         </xs:complexType>
     </xs:element>
-    
+
     <xs:element name="data">
         <xs:complexType>
             <xs:sequence>
@@ -57,7 +57,7 @@
             </xs:sequence>
         </xs:complexType>
     </xs:element>
-    
+
     <xs:element name="Messages">
         <xs:complexType>
             <xs:sequence>
