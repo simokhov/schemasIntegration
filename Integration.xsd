@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
 
+    <xs:include schemaLocation="supplierpurchaserequest14cust.xsd"/>
+    <xs:include schemaLocation="supplierpurchaserequest24cust.xsd"/>
     <xs:element name="Authorization">
         <xs:complexType>
             <xs:sequence>
@@ -32,7 +34,15 @@
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="ID" type="xs:int" minOccurs="1"/>
-                <xs:element name="XmlData" type="xs:string" minOccurs="1"/>
+                <xs:element name="XmlData">
+                    <xs:complexType>
+                        <xs:choice>
+                            <xs:element maxOccurs="unbounded" ref="supplierpurchaserequest14cust"/>
+                            <xs:element maxOccurs="unbounded" ref="supplierpurchaserequest24cust"/>
+                        </xs:choice>
+                    </xs:complexType>
+                </xs:element>
+
             </xs:sequence>
         </xs:complexType>
     </xs:element>
