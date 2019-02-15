@@ -37,8 +37,9 @@
                 <xs:element name="XmlData">
                     <xs:complexType>
                         <xs:choice>
-                            <xs:element maxOccurs="unbounded" ref="supplierpurchaserequest14cust"/>
-                            <xs:element maxOccurs="unbounded" ref="supplierpurchaserequest24cust"/>
+                            <xs:element maxOccurs="1" ref="supplierpurchaserequest14cust"
+                                minOccurs="1"/>
+                            <xs:element maxOccurs="1" ref="supplierpurchaserequest24cust"/>
                         </xs:choice>
                     </xs:complexType>
                 </xs:element>
@@ -93,6 +94,15 @@
                 <xs:element name="kindname" type="xs:string" minOccurs="0"/>
                 <xs:element name="docinout" type="xs:int" minOccurs="0"/>
                 <xs:element name="purchcode" type="xs:string" minOccurs="0"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="File">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="FileID" type="xs:string" minOccurs="1"/>
+                <xs:element name="FileGUID" type="xs:string" minOccurs="1"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
