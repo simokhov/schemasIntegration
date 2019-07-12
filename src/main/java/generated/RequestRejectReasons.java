@@ -12,20 +12,25 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for ReqDoc complex type.
+ * 
+ * 				Причины отказа в допуске заявки.
+ * 			
+ * 
+ * <p>Java class for RequestRejectReasons complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="ReqDoc">
+ * &lt;complexType name="RequestRejectReasons">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="file" type="{}OptionalFileType" maxOccurs="unbounded" minOccurs="0"/>
+ *         &lt;element name="rejectreason" type="{}rejectReason" maxOccurs="unbounded"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -35,40 +40,41 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "ReqDoc", propOrder = {
-    "file"
+@XmlType(name = "RequestRejectReasons", propOrder = {
+    "rejectreason"
 })
-public class ReqDoc {
+public class RequestRejectReasons {
 
-    protected List<OptionalFileType> file;
+    @XmlElement(required = true)
+    protected List<RejectReason> rejectreason;
 
     /**
-     * Gets the value of the file property.
+     * Gets the value of the rejectreason property.
      * 
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the file property.
+     * This is why there is not a <CODE>set</CODE> method for the rejectreason property.
      * 
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
-     *    getFile().add(newItem);
+     *    getRejectreason().add(newItem);
      * </pre>
      * 
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link OptionalFileType }
+     * {@link RejectReason }
      * 
      * 
      */
-    public List<OptionalFileType> getFile() {
-        if (file == null) {
-            file = new ArrayList<OptionalFileType>();
+    public List<RejectReason> getRejectreason() {
+        if (rejectreason == null) {
+            rejectreason = new ArrayList<RejectReason>();
         }
-        return this.file;
+        return this.rejectreason;
     }
 
 }
