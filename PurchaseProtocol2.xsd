@@ -211,7 +211,7 @@
 												<xs:documentation>Дата и время подачи предложения</xs:documentation>
 											</xs:annotation>
 										</xs:element>
-										<xs:sequence>
+										<xs:sequence minOccurs="0">
 											<xs:element name="rejectreasons" type="RequestRejectReasons" minOccurs="0">
 												<xs:annotation>
 													<xs:documentation>

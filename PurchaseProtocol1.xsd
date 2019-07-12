@@ -150,7 +150,7 @@
 												<xs:documentation>Статус заявки (A- принята; R- отклонена)</xs:documentation>
 											</xs:annotation>
 										</xs:element>
-										<xs:sequence>
+										<xs:sequence minOccurs="0">
 											<xs:element name="rejectreasons" type="RequestRejectReasons" minOccurs="0">
 												<xs:annotation>
 													<xs:documentation>
