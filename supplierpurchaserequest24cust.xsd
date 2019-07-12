@@ -80,6 +80,28 @@
 						<xs:documentation>Дата и время окончания аукциона</xs:documentation>
 					</xs:annotation>
 				</xs:element>
+				<xs:choice minOccurs="0">
+					<xs:element name="commission" type="xs:int">
+						<xs:annotation>
+							<xs:documentation>Идентификатор комиссии на РТС.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="ooscommission" type="xs:int">
+						<xs:annotation>
+							<xs:documentation>Идентификатор комиссии в ЕИС.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="esopCommissionInfo" type="esopCommissionInfo">
+						<xs:annotation>
+							<xs:documentation>Информация о комиссии из ВСРЗ.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:choice>
+				<xs:element name="membersPresense" type="commissionMemberPresense" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Присутствие членов комиссии</xs:documentation>
+					</xs:annotation>
+				</xs:element>
 				<xs:element name="totalreqcount" type="xs:unsignedByte">
 					<xs:annotation>
 						<xs:documentation>Заявок на участие подано</xs:documentation>
@@ -135,6 +157,23 @@
 											<xs:annotation>
 												<xs:documentation>Наименование поставщика</xs:documentation>
 											</xs:annotation>
+										</xs:element>
+										<xs:element name="commission" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>
+													Результаты голосования членов комиссии по допуску заявок.
+													Должны быть указаны результаты голосования всех присутствующих членов комиссии.
+													Присутствующие члены комиссии - все представленые в разделе membersPresense 
+													либо все в случае, в случае отсутствия раздела membersPresense в документе
+												</xs:documentation>
+											</xs:annotation>
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="vote"
+														type="commissionMemberVote" maxOccurs="unbounded">
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
 										</xs:element>
 										<xs:element name="opf" type="xs:string">
 											<xs:annotation>
@@ -294,7 +333,31 @@
 												</xs:sequence>
 											</xs:complexType>
 										</xs:element>
+										<xs:sequence minOccurs="0">
+											<xs:element name="rejectreasons" type="RequestRejectReasons" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>
+														Причины отказа в допуске заявки (Для единственного протокола).
+													</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="rejecttypes" type="RequestRejectTypes" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>
+														Пункты закона, на основе которых отклонена заявка.
+													</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="rejectreason" type="xs:string" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>
+														Причина отклонения предложения. Передается, если предложение признано не соответствующим.
+													</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+										</xs:sequence>
 									</xs:sequence>
+									
 								</xs:complexType>
 							</xs:element>
 						</xs:sequence>

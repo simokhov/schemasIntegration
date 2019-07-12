@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- edited with XMLSpy v2015 (x64) (http://www.altova.com) by Igi (Igi Co) -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+	attributeFormDefault="unqualified">
 	<xs:include schemaLocation="_CommonTypes.xsd"/>
 	<xs:element name="purchaseprotocol1">
 		<xs:annotation>
@@ -48,28 +49,52 @@
 						<xs:documentation>Дата окончания рассмотрения заявок</xs:documentation>
 					</xs:annotation>
 				</xs:element>
+				<xs:choice minOccurs="0">
+					<xs:element name="commission" type="xs:int">
+						<xs:annotation>
+							<xs:documentation>Идентификатор комиссии на РТС.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="ooscommission" type="xs:int">
+						<xs:annotation>
+							<xs:documentation>Идентификатор комиссии в ЕИС.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="esopCommissionInfo" type="esopCommissionInfo">
+						<xs:annotation>
+							<xs:documentation>Информация о комиссии из ВСРЗ.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:choice>
+				<xs:element name="membersPresense" type="commissionMemberPresense" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Присутствие членов комиссии</xs:documentation>
+					</xs:annotation>
+				</xs:element>
 				<xs:element name="notificationfeatures">
 					<xs:annotation>
 						<xs:documentation>Особенности размещения заказа (доп. требования)</xs:documentation>
 					</xs:annotation>
 					<xs:complexType>
 						<xs:sequence>
-							<xs:element name="notificationfeature" minOccurs="0" maxOccurs="unbounded">
+							<xs:element name="notificationfeature" minOccurs="0"
+								maxOccurs="unbounded">
 								<xs:complexType>
 									<xs:sequence>
 										<xs:element name="placementfeature">
 											<xs:complexType>
 												<xs:sequence>
-													<xs:element name="featuretypename" type="xs:string">
-														<xs:annotation>
-															<xs:documentation>Тип</xs:documentation>
-														</xs:annotation>
-													</xs:element>
-													<xs:element name="name" type="xs:string">
-														<xs:annotation>
-															<xs:documentation>Наименование</xs:documentation>
-														</xs:annotation>
-													</xs:element>
+												<xs:element name="featuretypename"
+												type="xs:string">
+												<xs:annotation>
+												<xs:documentation>Тип</xs:documentation>
+												</xs:annotation>
+												</xs:element>
+												<xs:element name="name" type="xs:string">
+												<xs:annotation>
+												<xs:documentation>Наименование</xs:documentation>
+												</xs:annotation>
+												</xs:element>
 												</xs:sequence>
 											</xs:complexType>
 										</xs:element>
@@ -103,16 +128,51 @@
 												<xs:documentation>Идентификатор заявки</xs:documentation>
 											</xs:annotation>
 										</xs:element>
+										<xs:element name="commission" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>
+													Результаты голосования членов комиссии по допуску заявок.
+													Должны быть указаны результаты голосования всех присутствующих членов комиссии.
+													Присутствующие члены комиссии - все представленые в разделе membersPresense 
+													либо все в случае, в случае отсутствия раздела membersPresense в документе
+												</xs:documentation>
+											</xs:annotation>
+											<xs:complexType>
+												<xs:sequence>
+												<xs:element name="vote"
+												type="commissionMemberVote" maxOccurs="unbounded">
+												</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
 										<xs:element name="reqstate" type="xs:string">
 											<xs:annotation>
 												<xs:documentation>Статус заявки (A- принята; R- отклонена)</xs:documentation>
 											</xs:annotation>
 										</xs:element>
-										<xs:element name="rejectreason" type="xs:string" minOccurs="0">
-											<xs:annotation>
-												<xs:documentation>Причина отклонения</xs:documentation>
-											</xs:annotation>
-										</xs:element>
+										<xs:sequence>
+											<xs:element name="rejectreasons" type="RequestRejectReasons" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>
+														Причины отказа в допуске заявки (Для единственного протокола).
+													</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="rejecttypes" type="RequestRejectTypes" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>
+														Пункты закона, на основе которых отклонена заявка.
+													</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+											<xs:element name="rejectreason" type="xs:string" minOccurs="0">
+												<xs:annotation>
+													<xs:documentation>
+														Причина отклонения предложения. Передается, если предложение признано не соответствующим.
+													</xs:documentation>
+												</xs:annotation>
+											</xs:element>
+										</xs:sequence>
 									</xs:sequence>
 								</xs:complexType>
 							</xs:element>
@@ -172,4 +232,311 @@
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
+	<xs:complexType name="esopCommissionInfo">
+		<xs:annotation>
+			<xs:documentation>Информация о комиссии из ВСРЗ.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="id" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Идентификатор комиссии на ВСРЗ.</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:pattern value="[A-Za-z/._%-]{1,10}[0-9]{1,30}"/>
+						<xs:maxLength value="30"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="name">
+				<xs:annotation>
+					<xs:documentation>Наименование комиссии.</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="2000"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="comment" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Комментарий к комиссии.</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="4000"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="members">
+				<xs:annotation>
+					<xs:documentation>Члены комиссии из ВСРЗ.</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="member" minOccurs="1" maxOccurs="unbounded">
+							<xs:annotation>
+								<xs:documentation>Информация о члене комиссии.</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="id" type="xs:positiveInteger">
+										<xs:annotation>
+											<xs:documentation>Порядковый номер члена комиссии.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:choice>
+										<xs:element name="name" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>ФИО члена комиссии.</xs:documentation>
+											</xs:annotation>
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+												<xs:maxLength value="256"/>
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+										<xs:group ref="fullName"/>
+									</xs:choice>
+									<xs:element name="post">
+										<xs:annotation>
+											<xs:documentation>Наименование должности члена комиссии.</xs:documentation>
+										</xs:annotation>
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:maxLength value="255"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="role" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>Наименование роли члена комиссии.</xs:documentation>
+										</xs:annotation>
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:maxLength value="255"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="roleIdOnOos" type="xs:positiveInteger">
+										<xs:annotation>
+											<xs:documentation>Идентификатор роли члена комиссии в ЕИС.</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:group name="fullName">
+		<xs:sequence>
+			<xs:element name="lastName">
+				<xs:annotation>
+					<xs:documentation>Фамилия члена комиссии.</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="50"/>
+						<xs:minLength value="1"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="firstName">
+				<xs:annotation>
+					<xs:documentation>Имя члена комиссии.</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="50"/>
+						<xs:minLength value="1"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="middleName" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Отчество члена комиссии.</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="50"/>
+						<xs:minLength value="1"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:group>
+	<xs:complexType name="commissionMemberVote">
+		<xs:sequence>
+			<xs:element name="member" type="xs:positiveInteger">
+				<xs:annotation>
+					<xs:documentation>
+						Порядковый номер члена комиссии или идентификатор.
+						1. для commission - идентификатор ч.к. на РТС,
+						2. для ooscommission - идентификатор ч.к. в ЕИС,
+						3. для esopCommissionInfo - порядковый номер ч.к.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="result" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>Решение: А - Заявка соотвествует, R - несоответсвует.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:choice>
+				<xs:sequence>
+					<xs:element name="rejectreason" type="xs:string" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>
+								Причина отклонения предложения. Передается, если предложение признано не соответствующим.
+							</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+				<xs:element name="comment" type="xs:string" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Необязательный комментарий.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:choice>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="RequestRejectReasons">
+		<xs:annotation>
+			<xs:documentation>
+				Причины отказа в допуске заявки.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="rejectreason" type="rejectReason" minOccurs="1" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Причина отказа в допуске заявки по справочнику nsiPurchaseRejectReason из ЕИС.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="RequestRejectTypes">
+		<xs:annotation>
+			<xs:documentation>
+				Пункты закона, на основе которых отклонена заявка.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="rejecttype" type="rejectTypeByLaw" minOccurs="1" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>
+						Пункт закона, на основе которого отклонена заявка.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="rejectReason">
+		<xs:annotation>
+			<xs:documentation>
+				Причина отказа в допуске заявки по справочнику nsiPurchaseRejectReason из ЕИС.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="id" type="xs:positiveInteger">
+				<xs:annotation>
+					<xs:documentation>Идентификатор причины отказа в допуске заявки по справочнику nsiPurchaseRejectReason из ЕИС.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="comment" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Комментарий к причине отказа.</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="2000" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:simpleType name="rejectTypeByLaw">
+		<xs:annotation>
+			<xs:documentation>
+				Пункты закона, на основе которых может быть отклонена заявка:
+				
+				1. Протокол рассмотрения заявок.
+				
+				Rejected_1_4_67_FL44 - Отказ по п. 1 ч. 4 ст. 67 (для ЭА 44-ФЗ и ЭА 504-ФЗ)
+				Rejected_2_4_67_FL44 - Отказ по п. 2 ч. 4 ст. 67 (для ЭА 44-ФЗ и ЭА 504-ФЗ)
+				Rejected_9_31_FL44 - Отказ по ч. 9 ст. 31 (для ЭА 44-ФЗ и ЭА 504-ФЗ)
+				Excluded_3_66_FL44 - Отказ по ч. 3 ст. 66 (для ЭА 44-ФЗ и ЭА 504-ФЗ)
+				Excluded_5_66_FL44 - Отказ по ч. 5 ст. 66 (для ЭА 44-ФЗ и ЭА 504-ФЗ)
+				Excluded_14_FL44 - Отказ по ст. 14 44-ФЗ (для ЭА 44-ФЗ и ЭА 504-ФЗ)
+				Rejected_14_FL44 - Отказ по ст. 14 44-ФЗ (только для ЭА 504-ФЗ)
+				
+				2. Протокол подведения итогов.
+				
+				Rejected_1_6_69_FL44 - Отказ по п. 1 ч. 6 ст. 69 (только для ЭА 44-ФЗ)
+				Rejected_2_6_69_FL44 - Отказ по п. 2 ч. 6 ст. 69 (для ЭА 44-ФЗ и ЭА 504-ФЗ)
+				Rejected_9_31_FL44 - Отказ по ч. 9 ст. 31 (для ЭА 44-ФЗ и ЭА 504-ФЗ)
+				Excluded_3_66_FL44 - Отказ по ч. 3 ст. 66 (для ЭА 44-ФЗ и ЭА 504-ФЗ)
+				Excluded_5_66_FL44 - Отказ по ч. 5 ст. 66 (для ЭА 44-ФЗ и ЭА 504-ФЗ)
+				Excluded_14_FL44 - Отказ по ст. 14 44-ФЗ (для ЭА 44-ФЗ и ЭА 504-ФЗ)
+				Rejected_11_24__3_5_66_FL44 - Отказ по ч. 11 ст. 24.1 / ч. 3 и 5 ст. 66 (только для ЭА 504-ФЗ)
+				Rejected_14_FL44 - Отказ по ст. 14 44-ФЗ (только для ЭА 504-ФЗ)
+				
+				3. Протокол рассмотрения ед. заявки.
+				
+				Rejected_1_4_67_FL44 - Отказ по п. 1 ч. 4 ст. 67 (для ЭА 44-ФЗ и ЭА 504-ФЗ)
+				Rejected_2_4_67_FL44 - Отказ по п. 2 ч. 4 ст. 67 (для ЭА 44-ФЗ и ЭА 504-ФЗ)
+				Rejected_1_6_69_FL44 - Отказ по п. 1 ч. 6 ст. 69 (только для ЭА 44-ФЗ)
+				Rejected_2_6_69_FL44 - Отказ по п. 2 ч. 6 ст. 69 (для ЭА 44-ФЗ и ЭА 504-ФЗ)
+				Rejected_9_31_FL44 - Отказ по ч. 9 ст. 31 (для ЭА 44-ФЗ и ЭА 504-ФЗ)
+				Excluded_3_66_FL44 - Отказ по ч. 3 ст. 66 (для ЭА 44-ФЗ и ЭА 504-ФЗ)
+				Excluded_5_66_FL44 - Отказ по ч. 5 ст. 66 (для ЭА 44-ФЗ и ЭА 504-ФЗ)
+				Excluded_14_FL44 - Отказ по ст. 14 44-ФЗ (для ЭА 44-ФЗ и ЭА 504-ФЗ)
+				Rejected_11_24__3_5_66_FL44 - Отказ по ч. 11 ст. 24.1 / ч. 3 и 5 ст. 66 (только для ЭА 504-ФЗ)
+				Rejected_14_FL44 - Отказ по ст. 14 44-ФЗ (только для ЭА 504-ФЗ)
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="R_P1" />
+			<xs:enumeration value="R_P2" />
+			<xs:enumeration value="R_P3" />
+			<xs:enumeration value="R_P4" />
+			
+			<xs:enumeration value="Rejected_1_4_67_FL44" />
+			<xs:enumeration value="Rejected_2_4_67_FL44" />
+			<xs:enumeration value="Rejected_1_6_69_FL44" />
+			<xs:enumeration value="Rejected_2_6_69_FL44" />
+			<xs:enumeration value="Rejected_9_31_FL44" />
+			<xs:enumeration value="Excluded_3_66_FL44" />
+			<xs:enumeration value="Excluded_5_66_FL44" />
+			<xs:enumeration value="Excluded_14_FL44" />
+			<xs:enumeration value="Rejected_11_24__3_5_66_FL44" />
+			<xs:enumeration value="Rejected_14_FL44" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="commissionMemberPresense">
+		<xs:choice>
+			<xs:element name ="commissionMember" type="xs:positiveInteger" minOccurs="1" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Идентификатор присутствующего члена комиссии на РТС</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="oosCommissionMember" type="xs:positiveInteger" minOccurs="1" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Идентификатор присутствующего члена комиссии на OOC</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="esopCommissionMember" type="xs:positiveInteger" minOccurs="1" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Порядковый номер присутствующего члена комиссии на ВСРЗ</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:choice>
+	</xs:complexType>
 </xs:schema>

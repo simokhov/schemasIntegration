@@ -15,6 +15,7 @@
 *.iws
 *.iml
 *.ipr
+instance1.xml
 
 ### NetBeans ###
 /nbproject/private/
@@ -24,3 +25,4 @@
 /.nb-gradle/
 /build/
 generate.sh
+

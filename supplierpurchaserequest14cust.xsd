@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- edited with XMLSpy v2015 (x64) (http://www.altova.com) by Igi (Igi Co) -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+	attributeFormDefault="unqualified">
 	<xs:include schemaLocation="_CommonTypes.xsd"/>
 	<xs:element name="supplierpurchaserequest14cust">
 		<xs:annotation>
@@ -33,6 +34,28 @@
 						<xs:documentation>Тип аукциона (94-ФЗ или 44-ФЗ)</xs:documentation>
 					</xs:annotation>
 				</xs:element>
+				<xs:choice minOccurs="0">
+					<xs:element name="commission" type="xs:int">
+						<xs:annotation>
+							<xs:documentation>Идентификатор комиссии.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="ooscommission" type="xs:int">
+						<xs:annotation>
+							<xs:documentation>Идентификатор комиссии в ЕИС.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="esopCommissionInfo" type="esopCommissionInfo">
+						<xs:annotation>
+							<xs:documentation>Информация о комиссии из ВСРЗ.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:choice>
+				<xs:element name="membersPresense" type="commissionMemberPresense" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Присутствие членов комиссии</xs:documentation>
+					</xs:annotation>
+				</xs:element>
 				<xs:element name="issinglerequest">
 					<xs:annotation>
 						<xs:documentation>Признак - единственная заявка</xs:documentation>
@@ -50,11 +73,14 @@
 										<xs:element name="placementFeature">
 											<xs:complexType>
 												<xs:sequence>
-													<xs:element name="featureType" type="xs:string"/>
-													<xs:element name="featureTypeName" type="xs:string"/>
-													<xs:element name="code" type="xs:unsignedInt" minOccurs="0"/>
-													<xs:element name="name" type="xs:string"/>
-													<xs:element name="content" type="xs:string" minOccurs="0"/>
+												<xs:element name="featureType" type="xs:string"/>
+												<xs:element name="featureTypeName"
+												type="xs:string"/>
+												<xs:element name="code" type="xs:unsignedInt"
+												minOccurs="0"/>
+												<xs:element name="name" type="xs:string"/>
+												<xs:element name="content" type="xs:string"
+												minOccurs="0"/>
 												</xs:sequence>
 											</xs:complexType>
 										</xs:element>
@@ -74,6 +100,22 @@
 								<xs:annotation>
 									<xs:documentation>Идентификатор заявки</xs:documentation>
 								</xs:annotation>
+							</xs:element>
+							<xs:element name="commission" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>
+										Результаты голосования членов комиссии по допуску заявок.
+										Должны быть указаны результаты голосования всех присутствующих членов комиссии.
+										Присутствующие члены комиссии - все представленые в разделе membersPresense 
+										либо все в случае, в случае отсутствия раздела membersPresense в документе
+									</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="vote" type="commissionMemberVote"
+											maxOccurs="unbounded"> </xs:element>
+									</xs:sequence>
+								</xs:complexType>
 							</xs:element>
 							<xs:element name="reqno" type="xs:unsignedInt">
 								<xs:annotation>
@@ -107,37 +149,37 @@
 											</xs:annotation>
 											<xs:complexType>
 												<xs:sequence>
-													<xs:element name="file">
-														<xs:complexType>
-															<xs:sequence>
-																<xs:element name="fileid" type="GUID">
-																	<xs:annotation>
-																		<xs:documentation>Идентификатор файла</xs:documentation>
-																	</xs:annotation>
-																</xs:element>
-																<xs:element name="filename" type="xs:string">
-																	<xs:annotation>
-																		<xs:documentation>Имя файла</xs:documentation>
-																	</xs:annotation>
-																</xs:element>
-																<xs:element name="hash" type="xs:base64Binary">
-																	<xs:annotation>
-																		<xs:documentation>ХЕШ файла</xs:documentation>
-																	</xs:annotation>
-																</xs:element>
-																<xs:element name="signinfo" type="xs:string">
-																	<xs:annotation>
-																		<xs:documentation>Информация о подписи</xs:documentation>
-																	</xs:annotation>
-																</xs:element>
-																<xs:element name="signrequired" type="xs:boolean">
-																	<xs:annotation>
-																		<xs:documentation>Требование наличия подписи</xs:documentation>
-																	</xs:annotation>
-																</xs:element>
-															</xs:sequence>
-														</xs:complexType>
-													</xs:element>
+												<xs:element name="file">
+												<xs:complexType>
+												<xs:sequence>
+												<xs:element name="fileid" type="GUID">
+												<xs:annotation>
+												<xs:documentation>Идентификатор файла</xs:documentation>
+												</xs:annotation>
+												</xs:element>
+												<xs:element name="filename" type="xs:string">
+												<xs:annotation>
+												<xs:documentation>Имя файла</xs:documentation>
+												</xs:annotation>
+												</xs:element>
+												<xs:element name="hash" type="xs:base64Binary">
+												<xs:annotation>
+												<xs:documentation>ХЕШ файла</xs:documentation>
+												</xs:annotation>
+												</xs:element>
+												<xs:element name="signinfo" type="xs:string">
+												<xs:annotation>
+												<xs:documentation>Информация о подписи</xs:documentation>
+												</xs:annotation>
+												</xs:element>
+												<xs:element name="signrequired" type="xs:boolean">
+												<xs:annotation>
+												<xs:documentation>Требование наличия подписи</xs:documentation>
+												</xs:annotation>
+												</xs:element>
+												</xs:sequence>
+												</xs:complexType>
+												</xs:element>
 												</xs:sequence>
 											</xs:complexType>
 										</xs:element>
@@ -149,6 +191,31 @@
 									<xs:documentation>Признак  представления сведений по требованиям 1 части</xs:documentation>
 								</xs:annotation>
 							</xs:element>
+							<xs:sequence minOccurs="0">
+								<xs:element name="rejectreasons" type="RequestRejectReasons"
+									minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>
+											Причины отказа в допуске заявки (Для единственного протокола).
+										</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="rejecttypes" type="RequestRejectTypes"
+									minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>
+											Пункты закона, на основе которых отклонена заявка.
+										</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+								<xs:element name="rejectreason" type="xs:string" minOccurs="0">
+									<xs:annotation>
+										<xs:documentation>
+											Причина отклонения предложения. Передается, если предложение признано не соответствующим.
+										</xs:documentation>
+									</xs:annotation>
+								</xs:element>
+							</xs:sequence>
 						</xs:sequence>
 					</xs:complexType>
 				</xs:element>
