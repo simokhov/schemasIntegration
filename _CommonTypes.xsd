@@ -1,29 +1,30 @@
-﻿<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
- 
+﻿<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified"
+  xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
   <!-- START OF: IntLen -->
   <xs:simpleType name="IntLen9Req">
     <xs:restriction base="xs:string">
-      <xs:pattern value="[0-9]{9}" />
+      <xs:pattern value="[0-9]{9}"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="IntLen9">
     <xs:restriction base="xs:string">
-      <xs:pattern value="[0-9]{9}" />
+      <xs:pattern value="[0-9]{9}"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="IntLen13Req">
     <xs:restriction base="xs:string">
-      <xs:pattern value="[0-9]{13}" />
+      <xs:pattern value="[0-9]{13}"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="IntLen20Req">
     <xs:restriction base="xs:string">
-      <xs:pattern value="[0-9]{20}" />
+      <xs:pattern value="[0-9]{20}"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="IntLen20">
     <xs:restriction base="xs:string">
-      <xs:pattern value="([0-9]{20})|(^$)" />
+      <xs:pattern value="([0-9]{20})|(^$)"/>
     </xs:restriction>
   </xs:simpleType>
   <!-- END OF: IntLen -->
@@ -31,96 +32,96 @@
   <!-- START OF: varchar -->
   <xs:simpleType name="varchar1">
     <xs:restriction base="xs:string">
-      <xs:minLength value="1" />
-      <xs:maxLength value="1" />
+      <xs:minLength value="1"/>
+      <xs:maxLength value="1"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="varchar3">
     <xs:restriction base="xs:string">
-      <xs:minLength value="1" />
-      <xs:maxLength value="3" />
+      <xs:minLength value="1"/>
+      <xs:maxLength value="3"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="varchar12">
     <xs:restriction base="xs:string">
-      <xs:minLength value="0" />
-      <xs:maxLength value="12" />
+      <xs:minLength value="0"/>
+      <xs:maxLength value="12"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="varchar20">
     <xs:restriction base="xs:string">
-      <xs:minLength value="0" />
-      <xs:maxLength value="20" />
+      <xs:minLength value="0"/>
+      <xs:maxLength value="20"/>
     </xs:restriction>
   </xs:simpleType>
-	<xs:simpleType name="varchar27">
-		<xs:restriction base="xs:string">
-			<xs:minLength value="0" />
-			<xs:maxLength value="27" />
-		</xs:restriction>
-	</xs:simpleType>
+  <xs:simpleType name="varchar27">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="0"/>
+      <xs:maxLength value="27"/>
+    </xs:restriction>
+  </xs:simpleType>
   <xs:simpleType name="varchar40">
     <xs:restriction base="xs:string">
-      <xs:minLength value="0" />
-      <xs:maxLength value="40" />
+      <xs:minLength value="0"/>
+      <xs:maxLength value="40"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="varchar50">
     <xs:restriction base="xs:string">
-      <xs:minLength value="0" />
-      <xs:maxLength value="50" />
+      <xs:minLength value="0"/>
+      <xs:maxLength value="50"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="varchar64">
     <xs:restriction base="xs:string">
-      <xs:minLength value="0" />
-      <xs:maxLength value="64" />
+      <xs:minLength value="0"/>
+      <xs:maxLength value="64"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="varchar100">
     <xs:restriction base="xs:string">
-      <xs:minLength value="0" />
-      <xs:maxLength value="100" />
+      <xs:minLength value="0"/>
+      <xs:maxLength value="100"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="varchar152">
     <xs:restriction base="xs:string">
-      <xs:minLength value="0" />
-      <xs:maxLength value="152" />
+      <xs:minLength value="0"/>
+      <xs:maxLength value="152"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="varchar250">
     <xs:restriction base="xs:string">
-      <xs:minLength value="0" />
-      <xs:maxLength value="250" />
+      <xs:minLength value="0"/>
+      <xs:maxLength value="250"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="varchar255">
     <xs:restriction base="xs:string">
-      <xs:minLength value="0" />
-      <xs:maxLength value="255" />
+      <xs:minLength value="0"/>
+      <xs:maxLength value="255"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="varchar256">
     <xs:restriction base="xs:string">
-      <xs:minLength value="0" />
-      <xs:maxLength value="256" />
+      <xs:minLength value="0"/>
+      <xs:maxLength value="256"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="varchar512">
     <xs:restriction base="xs:string">
-      <xs:minLength value="0" />
-      <xs:maxLength value="512" />
+      <xs:minLength value="0"/>
+      <xs:maxLength value="512"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="varchar1024">
     <xs:restriction base="xs:string">
-      <xs:minLength value="0" />
-      <xs:maxLength value="1024" />
+      <xs:minLength value="0"/>
+      <xs:maxLength value="1024"/>
     </xs:restriction>
   </xs:simpleType>
   <!-- END OF: varchar -->
-	
+
   <xs:simpleType name="CheckBoxType">
     <xs:annotation>
       <xs:documentation>
@@ -151,7 +152,7 @@
     <xs:restriction base="xs:string">
       <xs:enumeration value="">
         <xs:annotation>
-          <xs:documentation />
+          <xs:documentation/>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="1">
@@ -166,7 +167,7 @@
       </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
-  
+
   <xs:simpleType name="NullableInteger">
     <xs:annotation>
       <xs:documentation>
@@ -174,7 +175,7 @@
       </xs:documentation>
     </xs:annotation>
     <xs:restriction base="xs:string">
-      <xs:pattern value="(\d*)" />
+      <xs:pattern value="(\d*)"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="NullableDecimal">
@@ -184,7 +185,7 @@
       </xs:documentation>
     </xs:annotation>
     <xs:restriction base="xs:string">
-      <xs:pattern value="(\d+.?\d*)|(^$)" />
+      <xs:pattern value="(\d+.?\d*)|(^$)"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="NullableMoney">
@@ -194,7 +195,7 @@
       </xs:documentation>
     </xs:annotation>
     <xs:restriction base="xs:string">
-      <xs:pattern value="(\d+.?\d{0,2})|(^$)" />
+      <xs:pattern value="(\d+.?\d{0,2})|(^$)"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="Money">
@@ -204,7 +205,7 @@
       </xs:documentation>
     </xs:annotation>
     <xs:restriction base="xs:decimal">
-      <xs:pattern value="(\d+.?\d{0,2})" />
+      <xs:pattern value="(\d+.?\d{0,2})"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="TimeType">
@@ -217,11 +218,11 @@
       <xs:pattern value="(\d{2}.\d{2}.\d{4})"/>
     </xs:restriction>
   </xs:simpleType>
-	<xs:simpleType name="NullableRuDateType">
-		<xs:restriction base="xs:string">
-			<xs:pattern value="(\d{2}.\d{2}.\d{4})|(^$)"/>
-		</xs:restriction>
-	</xs:simpleType>
+  <xs:simpleType name="NullableRuDateType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="(\d{2}.\d{2}.\d{4})|(^$)"/>
+    </xs:restriction>
+  </xs:simpleType>
   <xs:simpleType name="RuDateTimeType">
     <xs:restriction base="xs:string">
       <xs:pattern value="(\d{2}.\d{2}.\d{4} \d{2}:\d{2})(:\d{2}|$)"/>
@@ -234,24 +235,24 @@
       </xs:documentation>
     </xs:annotation>
     <xs:restriction base="xs:string">
-      <xs:enumeration value="True" />
-      <xs:enumeration value="true" />
-      <xs:enumeration value="False" />
-      <xs:enumeration value="false" />
+      <xs:enumeration value="True"/>
+      <xs:enumeration value="true"/>
+      <xs:enumeration value="False"/>
+      <xs:enumeration value="false"/>
     </xs:restriction>
   </xs:simpleType>
 
-	<xs:simpleType name="NotEmptryString">
-		<xs:annotation>
-			<xs:documentation>
+  <xs:simpleType name="NotEmptryString">
+    <xs:annotation>
+      <xs:documentation>
 				Проверка: не является ли поле пустым.
 				Если поле содержит хотя бы один любой символ - результат проверки будет положительный.
 			</xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="xs:string">
-			<xs:pattern value="(.)" />
-		</xs:restriction>
-	</xs:simpleType>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:pattern value="(.)"/>
+    </xs:restriction>
+  </xs:simpleType>
 
   <xs:simpleType name="GUID">
     <xs:annotation>
@@ -260,7 +261,8 @@
       </xs:documentation>
     </xs:annotation>
     <xs:restriction base="xs:string">
-      <xs:pattern value="[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}" />
+      <xs:pattern
+        value="[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}"/>
     </xs:restriction>
   </xs:simpleType>
 
@@ -271,7 +273,8 @@
       </xs:documentation>
     </xs:annotation>
     <xs:restriction base="xs:string">
-      <xs:pattern value="([a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12})|(^$)" />
+      <xs:pattern
+        value="([a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12})|(^$)"/>
     </xs:restriction>
   </xs:simpleType>
 
@@ -282,7 +285,7 @@
       </xs:documentation>
     </xs:annotation>
     <xs:restriction base="xs:string">
-      <xs:pattern value="([0-9]{10})|([0-9]{12})" />
+      <xs:pattern value="([0-9]{10})|([0-9]{12})"/>
     </xs:restriction>
   </xs:simpleType>
 
@@ -293,7 +296,7 @@
       </xs:documentation>
     </xs:annotation>
     <xs:restriction base="xs:string">
-      <xs:pattern value="[0-9]{13}" />
+      <xs:pattern value="[0-9]{13}"/>
     </xs:restriction>
   </xs:simpleType>
 
@@ -304,7 +307,7 @@
       </xs:documentation>
     </xs:annotation>
     <xs:restriction base="xs:string">
-      <xs:pattern value="[0-9]{9}" />
+      <xs:pattern value="[0-9]{9}"/>
     </xs:restriction>
   </xs:simpleType>
 
@@ -315,7 +318,7 @@
       </xs:documentation>
     </xs:annotation>
     <xs:restriction base="xs:string">
-      <xs:pattern value="([а-яА-Яa-zA-Z0-9]{20})|(^$)" />
+      <xs:pattern value="([а-яА-Яa-zA-Z0-9]{20})|(^$)"/>
     </xs:restriction>
   </xs:simpleType>
 
@@ -326,7 +329,7 @@
       </xs:documentation>
     </xs:annotation>
     <xs:restriction base="xs:string">
-      <xs:pattern value="(^[\w\.=-]+@[\w\.-]+\.[\w]{2,3};?$)" />
+      <xs:pattern value="(^[\w\.=-]+@[\w\.-]+\.[\w]{2,3};?$)"/>
     </xs:restriction>
   </xs:simpleType>
 
@@ -337,10 +340,10 @@
       </xs:documentation>
     </xs:annotation>
     <xs:restriction base="xs:string">
-      <xs:pattern value="(^[\w\.=-]+@[\w\.-]+\.[\w]{2,3};?$)" />
+      <xs:pattern value="(^[\w\.=-]+@[\w\.-]+\.[\w]{2,3};?$)"/>
     </xs:restriction>
-  </xs:simpleType>  
-  
+  </xs:simpleType>
+
   <xs:simpleType name="oneOrMoreEmailType">
     <xs:annotation>
       <xs:documentation>
@@ -348,7 +351,7 @@
       </xs:documentation>
     </xs:annotation>
     <xs:restriction base="xs:string">
-      <xs:pattern value="^([\w\.=-]+@[\w\.-]+\.[\w]{2,3})(;[\w\.=-]+@[\w\.-]+\.[\w]{2,3})*$" />
+      <xs:pattern value="^([\w\.=-]+@[\w\.-]+\.[\w]{2,3})(;[\w\.=-]+@[\w\.-]+\.[\w]{2,3})*$"/>
     </xs:restriction>
   </xs:simpleType>
 
@@ -359,7 +362,7 @@
       </xs:documentation>
     </xs:annotation>
     <xs:restriction base="xs:string">
-      <xs:pattern value="(^[\w\.=-]+@[\w\.-]+\.[\w]{2,3}$)|()" />
+      <xs:pattern value="(^[\w\.=-]+@[\w\.-]+\.[\w]{2,3}$)|()"/>
     </xs:restriction>
   </xs:simpleType>
 
@@ -370,242 +373,242 @@
       </xs:documentation>
     </xs:annotation>
     <xs:restriction base="xs:string">
-      <xs:pattern value="(^[\w\.=-]+@[\w\.-]+\.[\w]{2,3}$)|()" />
+      <xs:pattern value="(^[\w\.=-]+@[\w\.-]+\.[\w]{2,3}$)|()"/>
     </xs:restriction>
   </xs:simpleType>
-	<xs:complexType name="esopCommissionInfo">
-		<xs:annotation>
-			<xs:documentation>Информация о комиссии из ВСРЗ.</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="id" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>Идентификатор комиссии на ВСРЗ.</xs:documentation>
-				</xs:annotation>
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:pattern value="[A-Za-z/._%-]{1,10}[0-9]{1,30}"/>
-						<xs:maxLength value="30"/>
-					</xs:restriction>
-				</xs:simpleType>
-			</xs:element>
-			<xs:element name="name">
-				<xs:annotation>
-					<xs:documentation>Наименование комиссии.</xs:documentation>
-				</xs:annotation>
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:maxLength value="2000"/>
-					</xs:restriction>
-				</xs:simpleType>
-			</xs:element>
-			<xs:element name="comment" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>Комментарий к комиссии.</xs:documentation>
-				</xs:annotation>
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:maxLength value="4000"/>
-					</xs:restriction>
-				</xs:simpleType>
-			</xs:element>
-			<xs:element name="members">
-				<xs:annotation>
-					<xs:documentation>Члены комиссии из ВСРЗ.</xs:documentation>
-				</xs:annotation>
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element name="member" minOccurs="1" maxOccurs="unbounded">
-							<xs:annotation>
-								<xs:documentation>Информация о члене комиссии.</xs:documentation>
-							</xs:annotation>
-							<xs:complexType>
-								<xs:sequence>
-									<xs:element name="id" type="xs:positiveInteger">
-										<xs:annotation>
-											<xs:documentation>Порядковый номер члена комиссии.</xs:documentation>
-										</xs:annotation>
-									</xs:element>
-									<xs:choice>
-										<xs:element name="name" minOccurs="0">
-											<xs:annotation>
-												<xs:documentation>ФИО члена комиссии.</xs:documentation>
-											</xs:annotation>
-											<xs:simpleType>
-												<xs:restriction base="xs:string">
-												<xs:maxLength value="256"/>
-												</xs:restriction>
-											</xs:simpleType>
-										</xs:element>
-										<xs:group ref="fullName"/>
-									</xs:choice>
-									<xs:element name="post">
-										<xs:annotation>
-											<xs:documentation>Наименование должности члена комиссии.</xs:documentation>
-										</xs:annotation>
-										<xs:simpleType>
-											<xs:restriction base="xs:string">
-												<xs:maxLength value="255"/>
-											</xs:restriction>
-										</xs:simpleType>
-									</xs:element>
-									<xs:element name="role" minOccurs="0">
-										<xs:annotation>
-											<xs:documentation>Наименование роли члена комиссии.</xs:documentation>
-										</xs:annotation>
-										<xs:simpleType>
-											<xs:restriction base="xs:string">
-												<xs:maxLength value="255"/>
-											</xs:restriction>
-										</xs:simpleType>
-									</xs:element>
-									<xs:element name="roleIdOnOos" type="xs:positiveInteger">
-										<xs:annotation>
-											<xs:documentation>Идентификатор роли члена комиссии в ЕИС.</xs:documentation>
-										</xs:annotation>
-									</xs:element>
-								</xs:sequence>
-							</xs:complexType>
-						</xs:element>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
-		</xs:sequence>
-	</xs:complexType>
-	<xs:group name="fullName">
-		<xs:sequence>
-			<xs:element name="lastName">
-				<xs:annotation>
-					<xs:documentation>Фамилия члена комиссии.</xs:documentation>
-				</xs:annotation>
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:maxLength value="50"/>
-						<xs:minLength value="1"/>
-					</xs:restriction>
-				</xs:simpleType>
-			</xs:element>
-			<xs:element name="firstName">
-				<xs:annotation>
-					<xs:documentation>Имя члена комиссии.</xs:documentation>
-				</xs:annotation>
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:maxLength value="50"/>
-						<xs:minLength value="1"/>
-					</xs:restriction>
-				</xs:simpleType>
-			</xs:element>
-			<xs:element name="middleName" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>Отчество члена комиссии.</xs:documentation>
-				</xs:annotation>
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:maxLength value="50"/>
-						<xs:minLength value="1"/>
-					</xs:restriction>
-				</xs:simpleType>
-			</xs:element>
-		</xs:sequence>
-	</xs:group>
-	<xs:complexType name="commissionMemberVote">
-		<xs:sequence>
-			<xs:element name="member" type="xs:positiveInteger">
-				<xs:annotation>
-					<xs:documentation>
+  <xs:complexType name="esopCommissionInfo">
+    <xs:annotation>
+      <xs:documentation>Информация о комиссии из ВСРЗ.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="id" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Идентификатор комиссии на ВСРЗ.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:pattern value="[A-Za-z/._%-]{1,10}[0-9]{1,30}"/>
+            <xs:maxLength value="30"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="name">
+        <xs:annotation>
+          <xs:documentation>Наименование комиссии.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="2000"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="comment" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Комментарий к комиссии.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="4000"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="members">
+        <xs:annotation>
+          <xs:documentation>Члены комиссии из ВСРЗ.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="member" minOccurs="1" maxOccurs="unbounded">
+              <xs:annotation>
+                <xs:documentation>Информация о члене комиссии.</xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="id" type="xs:positiveInteger">
+                    <xs:annotation>
+                      <xs:documentation>Порядковый номер члена комиссии.</xs:documentation>
+                    </xs:annotation>
+                  </xs:element>
+                  <xs:choice>
+                    <xs:element name="name" minOccurs="0">
+                      <xs:annotation>
+                        <xs:documentation>ФИО члена комиссии.</xs:documentation>
+                      </xs:annotation>
+                      <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                          <xs:maxLength value="256"/>
+                        </xs:restriction>
+                      </xs:simpleType>
+                    </xs:element>
+                    <xs:group ref="fullName"/>
+                  </xs:choice>
+                  <xs:element name="post">
+                    <xs:annotation>
+                      <xs:documentation>Наименование должности члена комиссии.</xs:documentation>
+                    </xs:annotation>
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="255"/>
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="role" minOccurs="0">
+                    <xs:annotation>
+                      <xs:documentation>Наименование роли члена комиссии.</xs:documentation>
+                    </xs:annotation>
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="255"/>
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="roleIdOnOos" type="xs:positiveInteger">
+                    <xs:annotation>
+                      <xs:documentation>Идентификатор роли члена комиссии в ЕИС.</xs:documentation>
+                    </xs:annotation>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="fullName">
+    <xs:sequence>
+      <xs:element name="lastName">
+        <xs:annotation>
+          <xs:documentation>Фамилия члена комиссии.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="50"/>
+            <xs:minLength value="1"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="firstName">
+        <xs:annotation>
+          <xs:documentation>Имя члена комиссии.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="50"/>
+            <xs:minLength value="1"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="middleName" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Отчество члена комиссии.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="50"/>
+            <xs:minLength value="1"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="commissionMemberVote">
+    <xs:sequence>
+      <xs:element name="member" type="xs:positiveInteger">
+        <xs:annotation>
+          <xs:documentation>
 						Порядковый номер члена комиссии или идентификатор.
 						1. для commission - идентификатор ч.к. на РТС,
 						2. для ooscommission - идентификатор ч.к. в ЕИС,
 						3. для esopCommissionInfo - порядковый номер ч.к.
 					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="result" type="xs:string">
-				<xs:annotation>
-					<xs:documentation>Решение: А - Заявка соотвествует, R - несоответсвует.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:choice>
-				<xs:sequence>
-					<xs:element name="rejectreason" type="xs:string" minOccurs="0">
-						<xs:annotation>
-							<xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="result" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Решение: А - Заявка соотвествует, R - несоответсвует.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:choice>
+        <xs:sequence>
+          <xs:element name="rejectreason" type="xs:string" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>
 								Причина отклонения предложения. Передается, если предложение признано не соответствующим.
 							</xs:documentation>
-						</xs:annotation>
-					</xs:element>
-				</xs:sequence>
-				<xs:element name="comment" type="xs:string" minOccurs="0">
-					<xs:annotation>
-						<xs:documentation>Необязательный комментарий.</xs:documentation>
-					</xs:annotation>
-				</xs:element>
-			</xs:choice>
-		</xs:sequence>
-	</xs:complexType>
-	<xs:complexType name="RequestRejectReasons">
-		<xs:annotation>
-			<xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+        <xs:element name="comment" type="xs:string" minOccurs="0">
+          <xs:annotation>
+            <xs:documentation>Необязательный комментарий.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RequestRejectReasons">
+    <xs:annotation>
+      <xs:documentation>
 				Причины отказа в допуске заявки.
 			</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="rejectreason" type="rejectReason" minOccurs="1" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="rejectreason" type="rejectReason" minOccurs="1" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
 						Причина отказа в допуске заявки по справочнику nsiPurchaseRejectReason из ЕИС.
 					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
-	</xs:complexType>
-	
-	<xs:complexType name="RequestRejectTypes">
-		<xs:annotation>
-			<xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="RequestRejectTypes">
+    <xs:annotation>
+      <xs:documentation>
 				Пункты закона, на основе которых отклонена заявка.
 			</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="rejecttype" type="rejectTypeByLaw" minOccurs="1" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="rejecttype" type="rejectTypeByLaw" minOccurs="1" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>
 						Пункт закона, на основе которого отклонена заявка.
 					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:sequence>
-	</xs:complexType>
-	
-	<xs:complexType name="rejectReason">
-		<xs:annotation>
-			<xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="rejectReason">
+    <xs:annotation>
+      <xs:documentation>
 				Причина отказа в допуске заявки по справочнику nsiPurchaseRejectReason из ЕИС.
 			</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="id" type="xs:positiveInteger">
-				<xs:annotation>
-					<xs:documentation>Идентификатор причины отказа в допуске заявки по справочнику nsiPurchaseRejectReason из ЕИС.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="comment" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>Комментарий к причине отказа.</xs:documentation>
-				</xs:annotation>
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:maxLength value="2000" />
-					</xs:restriction>
-				</xs:simpleType>
-			</xs:element>
-		</xs:sequence>
-	</xs:complexType>
-	
-	<xs:simpleType name="rejectTypeByLaw">
-		<xs:annotation>
-			<xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="id" type="xs:positiveInteger">
+        <xs:annotation>
+          <xs:documentation>Идентификатор причины отказа в допуске заявки по справочнику nsiPurchaseRejectReason из ЕИС.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="comment" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Комментарий к причине отказа.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="2000"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="rejectTypeByLaw">
+    <xs:annotation>
+      <xs:documentation>
 				Пункты закона, на основе которых может быть отклонена заявка:
 				
 				1. Протокол рассмотрения заявок.
@@ -623,11 +626,13 @@
 				Rejected_1_6_69_FL44 - Отказ по п. 1 ч. 6 ст. 69 (только для ЭА 44-ФЗ)
 				Rejected_2_6_69_FL44 - Отказ по п. 2 ч. 6 ст. 69 (для ЭА 44-ФЗ и ЭА 504-ФЗ)
 				Rejected_9_31_FL44 - Отказ по ч. 9 ст. 31 (для ЭА 44-ФЗ и ЭА 504-ФЗ)
-				Excluded_3_66_FL44 - Отказ по ч. 3 ст. 66 (для ЭА 44-ФЗ и ЭА 504-ФЗ)
+				Excluded_3_66_FL44 - Несоответствие Отказ по ч. 3 ст. 66 (для ЭА 44-ФЗ и ЭА 504-ФЗ)
+				Excluded_3_66N_FL44 - Непредоставление Отказ по ч. 3 ст. 66 (для ЭА 44-ФЗ и ЭА 504-ФЗ)
 				Excluded_5_66_FL44 - Отказ по ч. 5 ст. 66 (для ЭА 44-ФЗ и ЭА 504-ФЗ)
 				Excluded_14_FL44 - Отказ по ст. 14 44-ФЗ (для ЭА 44-ФЗ и ЭА 504-ФЗ)
 				Rejected_11_24__3_5_66_FL44 - Отказ по ч. 11 ст. 24.1 / ч. 3 и 5 ст. 66 (только для ЭА 504-ФЗ)
 				Rejected_14_FL44 - Отказ по ст. 14 44-ФЗ (только для ЭА 504-ФЗ)
+				Rejected_1_31_FL44 - Отказ ч. 1, 1.1, 2, 2.1 ст. 31 (для ЭА 44-ФЗ и ЭА 504-ФЗ)
 				
 				3. Протокол рассмотрения ед. заявки.
 				
@@ -641,43 +646,50 @@
 				Excluded_14_FL44 - Отказ по ст. 14 44-ФЗ (для ЭА 44-ФЗ и ЭА 504-ФЗ)
 				Rejected_11_24__3_5_66_FL44 - Отказ по ч. 11 ст. 24.1 / ч. 3 и 5 ст. 66 (только для ЭА 504-ФЗ)
 				Rejected_14_FL44 - Отказ по ст. 14 44-ФЗ (только для ЭА 504-ФЗ)
+				Rejected_1_31_FL44 - Отказ ч. 1, 1.1, 2, 2.1 ст. 31 (для ЭА 44-ФЗ и ЭА 504-ФЗ)
 			</xs:documentation>
-		</xs:annotation>
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="R_P1" />
-			<xs:enumeration value="R_P2" />
-			<xs:enumeration value="R_P3" />
-			<xs:enumeration value="R_P4" />
-			
-			<xs:enumeration value="Rejected_1_4_67_FL44" />
-			<xs:enumeration value="Rejected_2_4_67_FL44" />
-			<xs:enumeration value="Rejected_1_6_69_FL44" />
-			<xs:enumeration value="Rejected_2_6_69_FL44" />
-			<xs:enumeration value="Rejected_9_31_FL44" />
-			<xs:enumeration value="Excluded_3_66_FL44" />
-			<xs:enumeration value="Excluded_5_66_FL44" />
-			<xs:enumeration value="Excluded_14_FL44" />
-			<xs:enumeration value="Rejected_11_24__3_5_66_FL44" />
-			<xs:enumeration value="Rejected_14_FL44" />
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:complexType name="commissionMemberPresense">
-		<xs:choice>
-			<xs:element name ="commissionMember" type="xs:positiveInteger" minOccurs="1" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>Идентификатор присутствующего члена комиссии на РТС</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="oosCommissionMember" type="xs:positiveInteger" minOccurs="1" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>Идентификатор присутствующего члена комиссии на OOC</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="esopCommissionMember" type="xs:positiveInteger" minOccurs="1" maxOccurs="unbounded">
-				<xs:annotation>
-					<xs:documentation>Порядковый номер присутствующего члена комиссии на ВСРЗ</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-		</xs:choice>
-	</xs:complexType>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="R_P1"/>
+      <xs:enumeration value="R_P1N"/>
+      <xs:enumeration value="R_P2"/>
+      <xs:enumeration value="R_P3"/>
+      <xs:enumeration value="R_P4"/>
+
+      <xs:enumeration value="Rejected_1_4_67_FL44"/>
+      <xs:enumeration value="Rejected_2_4_67_FL44"/>
+      <xs:enumeration value="Rejected_1_6_69_FL44"/>
+      <xs:enumeration value="Rejected_2_6_69_FL44"/>
+      <xs:enumeration value="Rejected_1_31_FL44"/>
+      <xs:enumeration value="Rejected_9_31_FL44"/>
+      <xs:enumeration value="Excluded_3_66_FL44"/>
+      <xs:enumeration value="Excluded_3_66N_FL44"/>
+      <xs:enumeration value="Excluded_5_66_FL44"/>
+      <xs:enumeration value="Excluded_14_FL44"/>
+      <xs:enumeration value="Rejected_11_24__3_5_66_FL44"/>
+      <xs:enumeration value="Rejected_14_FL44"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="commissionMemberPresense">
+    <xs:choice>
+      <xs:element name="commissionMember" type="xs:positiveInteger" minOccurs="1"
+        maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>Идентификатор присутствующего члена комиссии на РТС</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="oosCommissionMember" type="xs:positiveInteger" minOccurs="1"
+        maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>Идентификатор присутствующего члена комиссии на OOC</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="esopCommissionMember" type="xs:positiveInteger" minOccurs="1"
+        maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>Порядковый номер присутствующего члена комиссии на ВСРЗ</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:choice>
+  </xs:complexType>
 </xs:schema>
