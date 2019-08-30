@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+  <xs:include schemaLocation="_FileTypes.xsd"/>
+  <xs:element name="prcommentsrequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="purchid" type="xs:string" minOccurs="0" />
+        <xs:element name="purchcode" type="xs:string" minOccurs="0" />
+        <xs:element name="purchversion" type="xs:string" minOccurs="0" />
+        <xs:element name="purchname" type="xs:string" minOccurs="0" />
+        <xs:element name="comreqid" type="xs:string" minOccurs="0" />
+        <xs:element name="comreqtitle" type="xs:string" minOccurs="0" />
+        <xs:element name="comreqtext" type="xs:string" minOccurs="0" />
+        <xs:element name="attacheddocs" type="AttachedDocs"  minOccurs="0" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

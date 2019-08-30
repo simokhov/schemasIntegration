@@ -10,26 +10,29 @@ package generated;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for PurchaseInfo complex type.
+ * <p>Java class for anonymous complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="PurchaseInfo">
+ * &lt;complexType>
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;all>
+ *       &lt;sequence>
  *         &lt;element name="purchid" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="purchcode" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="purchversion" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="purchname" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *         &lt;element name="custname" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *         &lt;element name="publicdate" type="{}NullableRuDateType" minOccurs="0"/>
- *         &lt;element name="purchamount" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *       &lt;/all>
+ *         &lt;element name="comreqid" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="comreqtitle" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="comreqtext" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="attacheddocs" type="{}AttachedDocs" minOccurs="0"/>
+ *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
  * &lt;/complexType>
@@ -38,17 +41,27 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "PurchaseInfo", propOrder = {
-
+@XmlType(name = "", propOrder = {
+    "purchid",
+    "purchcode",
+    "purchversion",
+    "purchname",
+    "comreqid",
+    "comreqtitle",
+    "comreqtext",
+    "attacheddocs"
 })
-public class PurchaseInfo {
+@XmlRootElement(name = "prcommentsrequest")
+public class Prcommentsrequest {
 
     protected String purchid;
     protected String purchcode;
+    protected String purchversion;
     protected String purchname;
-    protected String custname;
-    protected String publicdate;
-    protected String purchamount;
+    protected String comreqid;
+    protected String comreqtitle;
+    protected String comreqtext;
+    protected AttachedDocs attacheddocs;
 
     /**
      * Gets the value of the purchid property.
@@ -99,6 +112,30 @@ public class PurchaseInfo {
     }
 
     /**
+     * Gets the value of the purchversion property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getPurchversion() {
+        return purchversion;
+    }
+
+    /**
+     * Sets the value of the purchversion property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setPurchversion(String value) {
+        this.purchversion = value;
+    }
+
+    /**
      * Gets the value of the purchname property.
      * 
      * @return
@@ -123,75 +160,99 @@ public class PurchaseInfo {
     }
 
     /**
-     * Gets the value of the custname property.
+     * Gets the value of the comreqid property.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getCustname() {
-        return custname;
+    public String getComreqid() {
+        return comreqid;
     }
 
     /**
-     * Sets the value of the custname property.
+     * Sets the value of the comreqid property.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setCustname(String value) {
-        this.custname = value;
+    public void setComreqid(String value) {
+        this.comreqid = value;
     }
 
     /**
-     * Gets the value of the publicdate property.
+     * Gets the value of the comreqtitle property.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getPublicdate() {
-        return publicdate;
+    public String getComreqtitle() {
+        return comreqtitle;
     }
 
     /**
-     * Sets the value of the publicdate property.
+     * Sets the value of the comreqtitle property.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setPublicdate(String value) {
-        this.publicdate = value;
+    public void setComreqtitle(String value) {
+        this.comreqtitle = value;
     }
 
     /**
-     * Gets the value of the purchamount property.
+     * Gets the value of the comreqtext property.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getPurchamount() {
-        return purchamount;
+    public String getComreqtext() {
+        return comreqtext;
     }
 
     /**
-     * Sets the value of the purchamount property.
+     * Sets the value of the comreqtext property.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setPurchamount(String value) {
-        this.purchamount = value;
+    public void setComreqtext(String value) {
+        this.comreqtext = value;
+    }
+
+    /**
+     * Gets the value of the attacheddocs property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link AttachedDocs }
+     *     
+     */
+    public AttachedDocs getAttacheddocs() {
+        return attacheddocs;
+    }
+
+    /**
+     * Sets the value of the attacheddocs property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link AttachedDocs }
+     *     
+     */
+    public void setAttacheddocs(AttachedDocs value) {
+        this.attacheddocs = value;
     }
 
 }
