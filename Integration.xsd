@@ -3,6 +3,7 @@
 
     <xs:include schemaLocation="supplierpurchaserequest14cust.xsd"/>
     <xs:include schemaLocation="supplierpurchaserequest24cust.xsd"/>
+    <xs:include schemaLocation="prcommentsrequest.xsd"/>
     <xs:element name="Authorization">
         <xs:complexType>
             <xs:sequence>
@@ -40,6 +41,7 @@
                             <xs:element maxOccurs="1" ref="supplierpurchaserequest14cust"
                                 minOccurs="1"/>
                             <xs:element maxOccurs="1" ref="supplierpurchaserequest24cust"/>
+                            <xs:element maxOccurs="1" ref="prcommentsrequest"/>
                         </xs:choice>
                     </xs:complexType>
                 </xs:element>

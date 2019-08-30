@@ -6,7 +6,7 @@
 
     <groupId>com.sstd</groupId>
     <artifactId>integrationShemas</artifactId>
-    <version>0.13</version>
+    <version>0.14</version>
     <packaging>jar</packaging>
     <name>VSRZ Schemes</name>
 
